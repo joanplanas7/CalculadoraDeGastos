@@ -44,7 +44,7 @@ export class Account implements Account{
     deleteEntryById(id: number): boolean {
         const entriesFiltered = this.entries.filter((entry) => entry.id !== id);
         this.entries = entriesFiltered;
-        this.updateBalance;
+        this.updateBalance();
         return true;
     }
 
@@ -83,5 +83,7 @@ export class Entry implements Entry{
 
     }
 }
+
+
 
 

@@ -3,6 +3,7 @@ var account;
 var initalAcoount = getAccountFromStorage();
 if (initalAcoount) {
     account = new Account(initalAcoount);
+    updateBalanceAccount(account);
 }
 else {
     account = crarCompteInical();
@@ -85,9 +86,9 @@ function deleteElement(id, entryElement) {
     }).then(function (resultat) {
         if (resultat.isConfirmed) {
             account.deleteEntryById(Number(id));
+            updateBalanceAccount(account);
             setAccountToStorage(account);
             entryElement.remove();
-            updateBalanceAccount(account);
             Swal.fire('Eliminat!!', "L'entrada ha sigut eliminada", 'success');
         }
     });

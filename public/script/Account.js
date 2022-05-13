@@ -20,7 +20,7 @@ var Account = /** @class */ (function () {
     Account.prototype.deleteEntryById = function (id) {
         var entriesFiltered = this.entries.filter(function (entry) { return entry.id !== id; });
         this.entries = entriesFiltered;
-        this.updateBalance;
+        this.updateBalance();
         return true;
     };
     Account.prototype.getBalance = function () {

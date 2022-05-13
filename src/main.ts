@@ -6,6 +6,7 @@ const initalAcoount = getAccountFromStorage();
 
 if (initalAcoount){
     account = new Account(initalAcoount as Account);
+    updateBalanceAccount(account);
     
 }else{
     account = crarCompteInical();
@@ -109,9 +110,10 @@ function deleteElement(id: string, entryElement: HTMLElement){
     }).then((resultat:any) => {
         if(resultat.isConfirmed){
             account.deleteEntryById(Number(id));
+            updateBalanceAccount(account);
             setAccountToStorage(account);
             entryElement.remove();
-            updateBalanceAccount(account);
+            
            
             Swal.fire('Eliminat!!',"L'entrada ha sigut eliminada", 'success');
         }
